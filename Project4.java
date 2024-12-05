@@ -14,7 +14,10 @@ public class Project4 {
 
                 String serial = parts[0];
                 double price = Double.parseDouble(parts[1]);
+            }
+        }
+        catch(Exception e){
+            System.out.println("Error processing file: " + e.getMessage());
         }
     }
-    
 }
