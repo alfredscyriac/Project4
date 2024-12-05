@@ -5,6 +5,16 @@ public class Project4 {
         TreeMap<String, Refrigerator> refrigerators = new TreeMap<>(new ApplianceComparator());
         TreeMap<String, Dishwasher> dishwashers = new TreeMap<>(new ApplianceComparator());
         TreeMap<String, Microwave> microwaves = new TreeMap<>(new ApplianceComparator());
+        try{
+            TextFileInput fileInput = new TextFileInput(filePath);
+            String line;
+            while ((line = fileInput.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length < 3) continue;
+
+                String serial = parts[0];
+                double price = Double.parseDouble(parts[1]);
+        }
     }
     
 }
