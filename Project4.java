@@ -2,8 +2,8 @@ import java.util.TreeMap;
 public class Project4 {
     public static void main(String[] args) {
         String filePath = args[0];
-        TreeMap<Appliance, Refrigerator> refrigerators = new TreeMap<>(new ApplianceComparator());
-        TreeMap<Appliance, Dishwasher> dishwashers = new TreeMap<>(new ApplianceComparator());
+        TreeMap<String, Refrigerator> refrigerators = new TreeMap<>(new ApplianceComparator());
+        TreeMap<String, Dishwasher> dishwashers = new TreeMap<>(new ApplianceComparator());
         TreeMap<String, Microwave> microwaves = new TreeMap<>(new ApplianceComparator());
         try{
             TextFileInput fileInput = new TextFileInput(filePath);
@@ -28,10 +28,10 @@ public class Project4 {
                 }
             }
             fileInput.close();
-            }
         }
         catch(Exception e){
             System.out.println("Error processing file: " + e.getMessage());
         }
+        new ApplianceGUI(refrigerators, dishwashers, microwaves);
     }
 }
