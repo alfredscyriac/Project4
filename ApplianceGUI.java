@@ -9,8 +9,7 @@ public class ApplianceGUI {
     private JTextArea fridgeArea;
     private JTextArea dishWasherArea;
     private JTextArea microwaveArea;
-    public ApplianceGUI(TreeMap<String, Refrigerator> refrigerators,
-                        TreeMap<String, Dishwasher> dishwashers,
+    public ApplianceGUI(TreeMap<String, Refrigerator> refrigerators, TreeMap<String, Dishwasher> dishwashers,
                         TreeMap<String, Microwave> microwaves) {
         this.refrigerators = refrigerators;
         this.dishwashers = dishwashers;
@@ -44,17 +43,6 @@ public class ApplianceGUI {
         fridgeArea.setText(""); 
         dishWasherArea.setText("");
         microwaveArea.setText("");
-    }
-    private void searchAppliances(){
-        String input = JOptionPane.showInputDialog(null,"Enter search criteria (format: R/D/M,price):");
-        if(input==null||!Appliance.isValidInput(input)){
-            JOptionPane.showMessageDialog(null,"Invalid input.");
-            return; 
-        }
-        String[] parts = input.split(",");
-        char type = parts[0].charAt(0); 
-        int price = Integer.parseInt(parts[1]);
-
         var fridgeIterator = refrigerators.entrySet().iterator();
         while(fridgeIterator.hasNext()){
             var entry = fridgeIterator.next();
@@ -70,5 +58,15 @@ public class ApplianceGUI {
             var entry = microwaveIterator.next();
             microwaveArea.append(entry.getValue().toString() + "\n");
         }
+    }
+    private void searchAppliances(){
+        String input = JOptionPane.showInputDialog(null,"Enter search criteria (format: R/D/M,price):");
+        if(input==null||!Appliance.isValidInput(input)){
+            JOptionPane.showMessageDialog(null,"Invalid input.");
+            return; 
+        }
+        String[] parts = input.split(",");
+        char type = parts[0].charAt(0); 
+        int price = Integer.parseInt(parts[1]);
     }
 }
