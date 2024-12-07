@@ -55,6 +55,12 @@ public class ApplianceGUI {
         char type = parts[0].charAt(0); 
         int price = Integer.parseInt(parts[1]);
 
+        var fridgeIterator = refrigerators.entrySet().iterator();
+        while(fridgeIterator.hasNext()){
+            var entry = fridgeIterator.next();
+            fridgeArea.append("Key: " + entry.getKey() + " - " + entry.getValue().toString() + "\n");
+        }
+
     }
     
 }
