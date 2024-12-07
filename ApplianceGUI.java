@@ -45,5 +45,8 @@ public class ApplianceGUI {
         dishWasherArea.setText("");
         microwaveArea.setText("");
     }
+    private void searchAppliances(){
+        String input = JOptionPane.showInputDialog(null,"Enter search criteria (e.g., R,2000):");
+    }
     
 }
