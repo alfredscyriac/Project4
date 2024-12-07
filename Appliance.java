@@ -28,7 +28,9 @@ public class Appliance {
     public static boolean isValid(String serialNumber) {
         return Pattern.matches("^[RDM][A-Z0-9]{11}$", serialNumber);
     }
-    
+    public static boolean isValidInput(String input){
+        return input.matches("[RDM],\\d+"); 
+    }
     /**
      * Private instance variable for the serial number that uniquely identifies this appliance
      */

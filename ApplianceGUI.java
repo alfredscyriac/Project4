@@ -46,7 +46,8 @@ public class ApplianceGUI {
         microwaveArea.setText("");
     }
     private void searchAppliances(){
-        String input = JOptionPane.showInputDialog(null,"Enter search criteria (e.g., R,2000):");
+        String input = JOptionPane.showInputDialog(null,"Enter search criteria (format: R/D/M,price):");
+        
     }
     
 }
