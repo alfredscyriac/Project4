@@ -47,7 +47,14 @@ public class ApplianceGUI {
     }
     private void searchAppliances(){
         String input = JOptionPane.showInputDialog(null,"Enter search criteria (format: R/D/M,price):");
-        
+        if(input==null||!Appliance.isValidInput(input)){
+            JOptionPane.showMessageDialog(null,"Invalid input.");
+            return; 
+        }
+        String[] parts = input.split(",");
+        char type = parts[0].charAt(0); 
+        int price = Integer.parseInt(parts[1]);
+
     }
     
 }
