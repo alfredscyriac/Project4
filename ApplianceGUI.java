@@ -58,17 +58,17 @@ public class ApplianceGUI {
         var fridgeIterator = refrigerators.entrySet().iterator();
         while(fridgeIterator.hasNext()){
             var entry = fridgeIterator.next();
-            fridgeArea.append("Key: " + entry.getKey() + " - " + entry.getValue().toString() + "\n");
+            fridgeArea.append(entry.getValue().toString() + "\n");
         }
         var dishwasherIterator = dishwashers.entrySet().iterator();
         while (dishwasherIterator.hasNext()) {
             var entry = dishwasherIterator.next();
-            dishWasherArea.append("Key: " + entry.getKey() + " - " + entry.getValue().toString() + "\n");
+            dishWasherArea.append(entry.getValue().toString() + "\n");
         }
         var microwaveIterator = microwaves.entrySet().iterator();
         while (microwaveIterator.hasNext()) {
             var entry = microwaveIterator.next();
-            microwaveArea.append("Key: " + entry.getKey() + " - " + entry.getValue().toString() + "\n");
+            microwaveArea.append(entry.getValue().toString() + "\n");
         }
     }
 }
