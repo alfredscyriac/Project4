@@ -40,5 +40,10 @@ public class ApplianceGUI {
 
         updateDisplay();
     }
+    private void updateDisplay(){
+        fridgeArea.setText(""); 
+        dishWasherArea.setText("");
+        microwaveArea.setText("");
+    }
     
 }
