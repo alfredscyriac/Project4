@@ -15,8 +15,7 @@ public class Refrigerator extends Appliance {
      * variables while retriving serialNumber from the parent class which is appliance
      */
     public Refrigerator(String serialNumber, double price, int cubicFeet) {
-        super(serialNumber);
-        this.price = price;
+        super(serialNumber,price);
         this.cubicFeet = cubicFeet;
     }
 

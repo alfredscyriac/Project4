@@ -15,8 +15,7 @@ public class Microwave extends Appliance {
      * variables while retriving serialNumber from the parent class which is appliance
      */
     public Microwave(String serialNumber, double price, int watts) {
-        super(serialNumber);
-        this.price = price;
+        super(serialNumber,price);
         this.watts = watts;
     }
 

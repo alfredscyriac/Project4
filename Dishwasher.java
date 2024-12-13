@@ -15,8 +15,7 @@ public class Dishwasher extends Appliance {
      * variables while retriving serialNumber from the parent class which is appliance
      */
     public Dishwasher(String serialNumber, double price, boolean undercounterInstallation) {
-        super(serialNumber);
-        this.price = price;
+        super(serialNumber,price);
         this.undercounterInstallation = undercounterInstallation;
     }
 
