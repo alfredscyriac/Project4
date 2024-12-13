@@ -25,6 +25,6 @@ public class Refrigerator extends Appliance {
      */
     @Override
     public String toString() {
-        return "Serial=" + getSerialNumber() + ". Price=$" + price + ". Cubic Feet=" + cubicFeet + ".";
+        return "Serial=" + getSerialNumber() + ". Price=$" + getPrice() + ". Cubic Feet=" + cubicFeet + ".";
     }
 }

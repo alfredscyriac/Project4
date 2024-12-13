@@ -25,7 +25,7 @@ public class Dishwasher extends Appliance {
      */
     @Override
     public String toString() {
-        return "Serial=" + getSerialNumber() + ". Price=$" + price + 
+        return "Serial=" + getSerialNumber() + ". Price=$" + getPrice() + 
                ", Undercounter Installation=" + (undercounterInstallation ? "Yes" : "No") + ".";
     }
 }

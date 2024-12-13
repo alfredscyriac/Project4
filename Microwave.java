@@ -25,6 +25,6 @@ public class Microwave extends Appliance {
      */
     @Override
     public String toString() {
-        return "Serial=" + getSerialNumber() + ". Price=$" + price + ". Watts=" + watts + ".";
+        return "Serial=" + getSerialNumber() + ". Price=$" + getPrice() + ". Watts=" + watts + ".";
     }
 }
