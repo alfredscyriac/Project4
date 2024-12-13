@@ -22,6 +22,7 @@ public class ApplianceGUI {
         fridgeArea = new JTextArea();
         dishWasherArea = new JTextArea();
         microwaveArea = new JTextArea();
+        resultsArea = new JTextArea();
 
         JPanel appliancePanel = new JPanel(new GridLayout(1, 3));
         appliancePanel.add(new JScrollPane(fridgeArea)); 
@@ -36,7 +37,7 @@ public class ApplianceGUI {
         southPanel.add(searchButton, BorderLayout.SOUTH);
         
         frame.add(appliancePanel, BorderLayout.CENTER);
-        frame.add(searchButton, BorderLayout.SOUTH);
+        frame.add(southPanel, BorderLayout.SOUTH);
 
         frame.setSize(900, 400);
         frame.setVisible(true);
@@ -99,6 +100,9 @@ public class ApplianceGUI {
                     resultsArea.append(microwave.toString() + "\n");
                 }
             }
+        }
+        if (resultsArea.getText().isEmpty()) {
+            resultsArea.setText("No appliances found matching the criteria.");
         }
     }
 }
