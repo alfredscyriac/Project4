@@ -31,7 +31,10 @@ public class ApplianceGUI {
         JButton searchButton = new JButton("Search");
         searchButton.addActionListener(e -> searchAppliances());
 
-
+        JPanel southPanel = new JPanel(new BorderLayout());
+        southPanel.add(new JScrollPane(resultsArea), BorderLayout.CENTER);
+        southPanel.add(searchButton, BorderLayout.SOUTH);
+        
         frame.add(appliancePanel, BorderLayout.CENTER);
         frame.add(searchButton, BorderLayout.SOUTH);
 
@@ -75,7 +78,7 @@ public class ApplianceGUI {
             while (fridgeIterator.hasNext()) {
                 var fridge = fridgeIterator.next();
                 if (fridge.getPrice() <= price) {
-                    resultsArea.append(fridge).append("\n");
+                    resultsArea.append(fridge.toString() + "\n");
                 }
             }
         }
@@ -84,7 +87,7 @@ public class ApplianceGUI {
             while (dishwasherIterator.hasNext()) {
                 var dishwasher = dishwasherIterator.next();
                 if (dishwasher.getPrice() <= price) {
-                    resultsArea.append(dishwasher).append("\n");
+                    resultsArea.append(dishwasher.toString() + "\n");
                 }
             }
         }
@@ -93,7 +96,7 @@ public class ApplianceGUI {
             while (microwaveIterator.hasNext()) {
                 var microwave = microwaveIterator.next();
                 if (microwave.getPrice() <= price) {
-                    resultsArea.append(microwave).append("\n");
+                    resultsArea.append(microwave.toString() + "\n");
                 }
             }
         }

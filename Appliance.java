@@ -11,11 +11,14 @@ public class Appliance {
      * @param serialNumber is the serial number of the appliance
      * @throws IllegalApplianceException If the serial number is invalid using the isValid method
      */
-    public Appliance(String serialNumber) throws IllegalApplianceException{
+    private String serialNumber; 
+    private double price;
+    public Appliance(String serialNumber, double price) throws IllegalApplianceException{
         if (!isValid(serialNumber)) {
             throw new IllegalApplianceException("Invalid serial number: " + serialNumber);
         }
         this.serialNumber = serialNumber;
+        this.price=price; 
     }
     /**
      * Checks whether a given serial number is valid for an appliance or not
@@ -34,7 +37,7 @@ public class Appliance {
     /**
      * Private instance variable for the serial number that uniquely identifies this appliance
      */
-    private String serialNumber; 
+    
 
     /**
      * @return a string which is the serial number of a given appliance
@@ -49,6 +52,14 @@ public class Appliance {
      */
     public void setSerialNumber (String serialNumber) {  
         this.serialNumber = serialNumber;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     /**
