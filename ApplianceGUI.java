@@ -23,6 +23,7 @@ public class ApplianceGUI {
         dishWasherArea = new JTextArea();
         microwaveArea = new JTextArea();
         resultsArea = new JTextArea();
+        resultsArea.setBorder(BorderFactory.createTitledBorder("Search Results"));
 
         JPanel appliancePanel = new JPanel(new GridLayout(1, 3));
         appliancePanel.add(new JScrollPane(fridgeArea)); 
@@ -33,6 +34,7 @@ public class ApplianceGUI {
         searchButton.addActionListener(e -> searchAppliances());
 
         JPanel southPanel = new JPanel(new BorderLayout());
+        southPanel.add(new JScrollPane(resultsArea));
         southPanel.add(new JScrollPane(resultsArea), BorderLayout.CENTER);
         southPanel.add(searchButton, BorderLayout.SOUTH);
         
