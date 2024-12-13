@@ -4,7 +4,6 @@
  */
 public class Dishwasher extends Appliance {
     private boolean undercounterInstallation;
-    private double price;
 
     /**
      * Constructor for a dishwasher object

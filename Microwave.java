@@ -4,7 +4,6 @@
  */
 public class Microwave extends Appliance {
     private int watts;
-    private double price;
 
     /**
      * Constructor for a microwave object

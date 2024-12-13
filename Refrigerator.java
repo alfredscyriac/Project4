@@ -4,7 +4,6 @@
  */
 public class Refrigerator extends Appliance {
     private int cubicFeet;
-    private double price;
 
      /**
      * Constructor for a refrigerator object
