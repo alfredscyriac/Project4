@@ -9,6 +9,7 @@ public class ApplianceGUI {
     private JTextArea fridgeArea;
     private JTextArea dishWasherArea;
     private JTextArea microwaveArea;
+    private JTextArea resultsArea;
     public ApplianceGUI(TreeMap<String, Refrigerator> refrigerators, TreeMap<String, Dishwasher> dishwashers,
                         TreeMap<String, Microwave> microwaves) {
         this.refrigerators = refrigerators;
@@ -46,17 +47,17 @@ public class ApplianceGUI {
         var fridgeIterator = refrigerators.entrySet().iterator();
         while(fridgeIterator.hasNext()){
             var entry = fridgeIterator.next();
-            fridgeArea.append(entry.getValue().toString() + "\n");
+            fridgeArea.append(entry.getValue() + "\n");
         }
         var dishwasherIterator = dishwashers.entrySet().iterator();
         while (dishwasherIterator.hasNext()) {
             var entry = dishwasherIterator.next();
-            dishWasherArea.append(entry.getValue().toString() + "\n");
+            dishWasherArea.append(entry.getValue() + "\n");
         }
         var microwaveIterator = microwaves.entrySet().iterator();
         while (microwaveIterator.hasNext()) {
             var entry = microwaveIterator.next();
-            microwaveArea.append(entry.getValue().toString() + "\n");
+            microwaveArea.append(entry.getValue() + "\n");
         }
     }
     private void searchAppliances(){
@@ -68,5 +69,33 @@ public class ApplianceGUI {
         String[] parts = input.split(",");
         char type = parts[0].charAt(0); 
         int price = Integer.parseInt(parts[1]);
+        resultsArea.setText("");
+        if(type=='R'){
+            var fridgeIterator = refrigerators.values().iterator();
+            while (fridgeIterator.hasNext()) {
+                var fridge = fridgeIterator.next();
+                if (fridge.getPrice() <= price) {
+                    resultsArea.append(fridge).append("\n");
+                }
+            }
+        }
+        else if(type=='D'){
+            var dishwasherIterator = dishwashers.values().iterator();
+            while (dishwasherIterator.hasNext()) {
+                var dishwasher = dishwasherIterator.next();
+                if (dishwasher.getPrice() <= price) {
+                    resultsArea.append(dishwasher).append("\n");
+                }
+            }
+        }
+        else if(type=='M'){
+            var microwaveIterator = microwaves.values().iterator();
+            while (microwaveIterator.hasNext()) {
+                var microwave = microwaveIterator.next();
+                if (microwave.getPrice() <= price) {
+                    resultsArea.append(microwave).append("\n");
+                }
+            }
+        }
     }
 }
