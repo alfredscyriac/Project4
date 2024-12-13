@@ -23,7 +23,6 @@ public class ApplianceGUI {
         dishWasherArea = new JTextArea();
         microwaveArea = new JTextArea();
         resultsArea = new JTextArea();
-        resultsArea.setBorder(BorderFactory.createTitledBorder("Search Results"));
 
         JPanel appliancePanel = new JPanel(new GridLayout(1, 3));
         appliancePanel.add(new JScrollPane(fridgeArea)); 
@@ -36,12 +35,22 @@ public class ApplianceGUI {
         JPanel southPanel = new JPanel(new BorderLayout());
         southPanel.add(new JScrollPane(resultsArea));
         southPanel.add(new JScrollPane(resultsArea), BorderLayout.CENTER);
-        southPanel.add(searchButton, BorderLayout.SOUTH);
         
+        JMenuBar menuBar = new JMenuBar();
+        JMenu fileMenu = new JMenu("File");
+        JMenuItem searchMenuItem = new JMenuItem("Search");
+        searchMenuItem.addActionListener(e -> searchAppliances());
+        fileMenu.add(searchMenuItem);
+        JMenuItem quitMenuItem = new JMenuItem("Quit");
+        quitMenuItem.addActionListener(e -> System.exit(0));
+        fileMenu.add(quitMenuItem);
+        menuBar.add(fileMenu);
+        frame.setJMenuBar(menuBar);
+
         frame.add(appliancePanel, BorderLayout.CENTER);
         frame.add(southPanel, BorderLayout.SOUTH);
 
-        frame.setSize(900, 400);
+        frame.setSize(1600, 400);
         frame.setVisible(true);
 
         updateDisplay();
@@ -76,6 +85,7 @@ public class ApplianceGUI {
         char type = parts[0].charAt(0); 
         int price = Integer.parseInt(parts[1]);
         resultsArea.setText("");
+        resultsArea.append("Results: \n");
         if(type=='R'){
             var fridgeIterator = refrigerators.values().iterator();
             while (fridgeIterator.hasNext()) {
