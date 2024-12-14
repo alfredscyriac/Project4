@@ -4,13 +4,14 @@ public class Appliance {
     private String serialNumber; 
     private double price;
     /**
-     * This is the constructor for the Appliance class and sets the serial number of an appliance
+     * This is the constructor for the Appliance class and sets the serial number of an appliance and price
      * The constructor validates the serial number using the isValid method 
      * If the serial number is not valid we throw an exception we created ourselves in..
      * IllegalApplianceException.java
      * If an inValid serial number is found it is printed to the console/terminal
      *
      * @param serialNumber is the serial number of the appliance
+     * @param price is the price of the appliance
      * @throws IllegalApplianceException If the serial number is invalid using the isValid method
      */
     public Appliance(String serialNumber, double price) throws IllegalApplianceException{
