@@ -55,42 +55,22 @@ public class ApplianceGUI {
         fridgeArea.setText(""); 
         dishWasherArea.setText("");
         microwaveArea.setText("");
-        int fridgeCount=0;
-        int dishwasherCount=0; 
-        int microwaveCount=0; 
-        int max=0; 
-
         var fridgeIterator = refrigerators.entrySet().iterator();
         while(fridgeIterator.hasNext()){
             var entry = fridgeIterator.next();
             fridgeArea.append(entry.getValue() + "\n");
-            fridgeCount++;
         }
         var dishwasherIterator = dishwashers.entrySet().iterator();
         while (dishwasherIterator.hasNext()) {
             var entry = dishwasherIterator.next();
             dishWasherArea.append(entry.getValue() + "\n");
-            dishwasherCount++;
         }
         var microwaveIterator = microwaves.entrySet().iterator();
         while (microwaveIterator.hasNext()) {
             var entry = microwaveIterator.next();
             microwaveArea.append(entry.getValue() + "\n");
-            microwaveCount++;
-        }
-        if(fridgeCount>= microwaveCount && fridgeCount>=dishwasherCount){
-            max=fridgeCount;
-        }
-        else if(microwaveCount>=fridgeCount && microwaveCount>=dishwasherCount){
-            max=microwaveCount;
-        }
-        else{
-            max=dishwasherCount; 
         }
         resultsArea.append("Search Results: \n");
-        for (int i = 0; i < max; i++) {
-            resultsArea.append("\n");
-        }
     }
     private void searchAppliances(){
         String input = JOptionPane.showInputDialog(null,"Enter search criteria (format: R/D/M,price):");
