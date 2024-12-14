@@ -1,6 +1,8 @@
 import java.util.regex.Pattern;
 
 public class Appliance {
+    private String serialNumber; 
+    private double price;
     /**
      * This is the constructor for the Appliance class and sets the serial number of an appliance
      * The constructor validates the serial number using the isValid method 
@@ -11,8 +13,6 @@ public class Appliance {
      * @param serialNumber is the serial number of the appliance
      * @throws IllegalApplianceException If the serial number is invalid using the isValid method
      */
-    private String serialNumber; 
-    private double price;
     public Appliance(String serialNumber, double price) throws IllegalApplianceException{
         if (!isValid(serialNumber)) {
             throw new IllegalApplianceException("Invalid serial number: " + serialNumber);
@@ -54,10 +54,17 @@ public class Appliance {
         this.serialNumber = serialNumber;
     }
 
+     /**
+     * @return a double which is the price of a given appliance
+     */
     public double getPrice() {
         return price;
     }
 
+    /**
+     * Changes an appliance's existing price with a new one 
+     * @param price, the new price to be set for an appliance 
+     */
     public void setPrice(double price) {
         this.price = price;
     }
