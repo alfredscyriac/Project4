@@ -29,12 +29,8 @@ public class ApplianceGUI {
         appliancePanel.add(new JScrollPane(dishWasherArea)); 
         appliancePanel.add(new JScrollPane(microwaveArea)); 
 
-        JButton searchButton = new JButton("Search");
-        searchButton.addActionListener(e -> searchAppliances());
-
-        JPanel southPanel = new JPanel(new BorderLayout());
+        JPanel southPanel = new JPanel(new GridLayout(1,1));
         southPanel.add(new JScrollPane(resultsArea));
-        southPanel.add(new JScrollPane(resultsArea), BorderLayout.CENTER);
         
         JMenuBar menuBar = new JMenuBar();
         JMenu fileMenu = new JMenu("File");
@@ -74,6 +70,7 @@ public class ApplianceGUI {
             var entry = microwaveIterator.next();
             microwaveArea.append(entry.getValue() + "\n");
         }
+        resultsArea.append("Search Results: \n\n\n\n\n\n\n\n\n");
     }
     private void searchAppliances(){
         String input = JOptionPane.showInputDialog(null,"Enter search criteria (format: R/D/M,price):");
@@ -85,7 +82,7 @@ public class ApplianceGUI {
         char type = parts[0].charAt(0); 
         int price = Integer.parseInt(parts[1]);
         resultsArea.setText("");
-        resultsArea.append("Results: \n");
+        resultsArea.append("Search Results: \n");
         if(type=='R'){
             var fridgeIterator = refrigerators.values().iterator();
             while (fridgeIterator.hasNext()) {
