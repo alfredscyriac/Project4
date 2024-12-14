@@ -118,16 +118,34 @@ public class ApplianceGUI {
         // of space in the GUI where the resultsArea can be displayed 
         resultsArea.append("Search Results: \n\n\n\n\n\n\n\n\n");
     }
+    /**
+     * Allows the user to search appliances based on type and price criteria 
+     * Required format: R/D/M,price
+     * Prompts the user for input and displays the search results in the results area
+     * Results are appliances of the same type, with price less than or equal to user entered price
+     * The appliances are still ordered by serial number and not price
+     * isValidInput is a pattern created in Appliance.java that uses a regex pattern to validate
+     * the user followed the correct input formatting
+     */
     private void searchAppliances(){
         String input = JOptionPane.showInputDialog(null,"Enter search criteria (format: R/D/M,price):");
         if(input==null||!Appliance.isValidInput(input)){
             JOptionPane.showMessageDialog(null,"Invalid input.");
             return; 
         }
+        // Parse the input
         String[] parts = input.split(",");
         char type = parts[0].charAt(0); 
         int price = Integer.parseInt(parts[1]);
+
+        // Clears anything that was previously in the resultsArea
         resultsArea.setText("");
+
+        // Use if else statements to first identify which appliance type the user inputted
+        // Then we use the same exact iteration using iterator, entrySet, and hasNext like we did 
+        // in updateDisplay but with an additional if statemnt which uses the getPrice() method 
+        // from Appliance.java to check if the current appliance object fits the users entered critera
+        // only if that if statement is true then will the object be appeneded to the resultsArea
         if(type=='R'){
             var fridgeIterator = refrigerators.values().iterator();
             while (fridgeIterator.hasNext()) {
@@ -155,6 +173,8 @@ public class ApplianceGUI {
                 }
             }
         }
+        // In case that the users criteria does not have any matching appliances, then this message 
+        // will be added to the resultsArea to notify the user
         if (resultsArea.getText().isEmpty()) {
             resultsArea.setText("No appliances found matching the criteria.");
         }
