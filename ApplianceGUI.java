@@ -70,7 +70,7 @@ public class ApplianceGUI {
             var entry = microwaveIterator.next();
             microwaveArea.append(entry.getValue() + "\n");
         }
-        resultsArea.append("Search Results: \n");
+        resultsArea.append("Search Results: \n\n\n\n\n\n\n\n\n");
     }
     private void searchAppliances(){
         String input = JOptionPane.showInputDialog(null,"Enter search criteria (format: R/D/M,price):");
@@ -82,7 +82,6 @@ public class ApplianceGUI {
         char type = parts[0].charAt(0); 
         int price = Integer.parseInt(parts[1]);
         resultsArea.setText("");
-        resultsArea.append("Search Results: \n");
         if(type=='R'){
             var fridgeIterator = refrigerators.values().iterator();
             while (fridgeIterator.hasNext()) {
