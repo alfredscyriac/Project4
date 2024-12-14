@@ -84,10 +84,18 @@ public class ApplianceGUI {
         // Calls a method that populates all the appliance text areas with data 
         updateDisplay();
     }
+    /**
+     * Updates the display areas with the appliances stored in the TreeMaps by traversing/iterating through
+     */
     private void updateDisplay(){
+        // Clear all text areas 
         fridgeArea.setText(""); 
         dishWasherArea.setText("");
         microwaveArea.setText("");
+
+        // Use the entrySet and iterator methods that allow us to traverse through a TreeMap until we reach 
+        // a null value. At each iteration append the value of the Appliance Object which is 
+        // esstentially it's toString method to the proper text area 
         var fridgeIterator = refrigerators.entrySet().iterator();
         while(fridgeIterator.hasNext()){
             var entry = fridgeIterator.next();
@@ -103,6 +111,11 @@ public class ApplianceGUI {
             var entry = microwaveIterator.next();
             microwaveArea.append(entry.getValue() + "\n");
         }
+        // The reason for the excessive \n was that the size of the resultsArea was being determined 
+        // before the user enters in a search field, thus just having Search Results made it a very small
+        // section and once the data was properply added there, the user would have to drag and expand the
+        // window to see the updated data. Although this isn't very dynamic, it serves as a placeholder 
+        // of space in the GUI where the resultsArea can be displayed 
         resultsArea.append("Search Results: \n\n\n\n\n\n\n\n\n");
     }
     private void searchAppliances(){
